@@ -1,14 +1,14 @@
-####### That is another way for avoiding nil ###
+################################ That is another way for avoiding nil ###################################
 
 #1# invert the object relationship 
 	## this happened here by putting(calling) the subscription into the person class not vice versa (putting(calling) the person into Subscription.
 #2# guard against nils in a manual attribute reader 
-	## this happened accordingly if 
+	## this happened accordingly if  we define custom attribute reader method that raises an exception if the attribute does not exist 
 
 #3# introduce new domain concepts 	
 	## by introducing subscriber domain
 
-################### The details goes here #################
+######################################## The details goes here ###########################################
 
 #@1# 
 # every thing would be inside out 
@@ -23,9 +23,6 @@ end
 
 subscription = Subscription_1.new
 person = subscription.person
-
-
-
 ###########################################################
 
 #@2#
@@ -41,12 +38,8 @@ class Person_2
 	end 
 end 
 
-
-
 class NoSubscriptionError < Exception 
 end 
-
-
 
 class Subscription_2 
 end 
@@ -56,8 +49,8 @@ if false
 	person.subscribe!
 end 
 	puts person.subscription
-
 ###########################################################
+
 #@3#
 class Person_3 
 	def subscribe
