@@ -21,10 +21,10 @@ class Object
 	def should(comparison_object=nil) 
 	  # to enable real rspec it is just an if condition 
 	  # if comparison_object
-          #  ...
+      #  ...
 	  # else 
 	   DelayedAssertion.new(self)
-          #end
+      #end
 	end
 end
 
