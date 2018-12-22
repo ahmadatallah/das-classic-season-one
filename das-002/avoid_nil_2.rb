@@ -17,8 +17,8 @@ class Person_1
 end 
 
 class Subscription_1
-	attr_reader :person
-	@person  = Person_1.new 
+   attr_reader :person
+   @person  = Person_1.new 
 end 
 
 subscription = Subscription_1.new
@@ -28,14 +28,12 @@ person = subscription.person
 #@2#
 # Here we want to are just localizing the failure instead of raising nil a better solution for that in @3 section 
 class Person_2
-
-	def subscribe! 
-		@subscription = Subscription_2.new
-	end 
-	
-	def subscription
-		@subscription or raise NoSubscriptionError
-	end 
+   def subscribe! 
+      @subscription = Subscription_2.new
+   end 
+   def subscription
+      @subscription or raise NoSubscriptionError
+   end 
 end 
 
 class NoSubscriptionError < Exception 
@@ -46,24 +44,23 @@ end
 
 person = Person_2.new 
 if false
-	person.subscribe!
+   person.subscribe!
 end 
-	puts person.subscription
+puts person.subscription
 ###########################################################
 
 #@3#
 class Person_3 
-	def subscribe
-		Subscriper.new(Subscription_3.new)
-	end 
-	
+   def subscribe
+      Subscriper.new(Subscription_3.new)
+   end 	
 end 
 
 class Subscriber
-	attr_reader :subscription
-	def initialize(subscription)
-		@subscription = subscription 
-	end 
+   attr_reader :subscription
+   def initialize(subscription)
+      @subscription = subscription 
+   end 
 end 
 
 
@@ -73,8 +70,8 @@ end
 
 person = Person_3.new 
 if true 
-	subscriber = person.subscribe
-	puts subscriber.subscription
+   subscriber = person.subscribe
+   puts subscriber.subscription
 end 
 
 
